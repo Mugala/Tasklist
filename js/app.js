@@ -22,6 +22,35 @@ function loadEventListeners(){
     filter.addEventListener('keyup', filterTasks);
 }
 
+// Get Tasks from Local Storage
+function getTasks(){
+    let tasks;
+    if(localStorage.getItem('tasks')=== null){
+        tasks = [];
+    }else{
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    
+    tasks.forEach(function(task){
+        //create li element
+        const li = document.createElement('li');
+        //Add class
+        li.className = 'collection-item';
+        // create text node and append to li
+        li.appendChild(document.createTextNode(task));
+        // Create new link element
+        const link = document.createElement('a');
+        //Add class
+        link.className = 'delete-item secondary-content';
+        // Add icon html
+        link.innerHTML = '<i class = "fa fa-remove"></i>';
+        // Append the link to li
+        li.appendChild(link);
+        // Append the li to the ul
+        taskList.appendChild(li);
+    });
+}
+
 // Add Task
 function addTask(e){
     if(taskInput.value === ''){
@@ -35,18 +64,14 @@ function addTask(e){
     // create text node and append to li
     li.appendChild(document.createTextNode(taskInput.value));
     // Create new link element
-
     const link = document.createElement('a');
     //Add class
     link.className = 'delete-item secondary-content';
-
     // Add icon html
     link.innerHTML = '<i class = "fa fa-remove"></i>';
     // Append the link to li
     li.appendChild(link);
-
     // Append the li to the ul
-
     taskList.appendChild(li);
 
     // Store in local storage
@@ -67,6 +92,7 @@ function storeTaskInLocalStorage(task){
     }else{
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
+
     tasks.push(tasks);
 
     localStorage.setItem('tasks',JSON.stringify(task));
@@ -85,7 +111,7 @@ function removeTask(e){
 function clearTasks(){
     //taskList.innerHTML = '';
 
-    //Faster
+    //Faster 
     while(taskList.firstChild){
         taskList.removeChild(taskList.firstChild);
     }
