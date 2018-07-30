@@ -20,6 +20,13 @@ function addTask(e){
         alert('Add a task');
     }
 
+    //create li element
+    const li = document.createElement('li');
+    //Add class
+    li.className = 'collection-item';
+    // create text node and append to li
+    li.appendChild(document.createTextNode(taskInput.value));
+    
 
     e.preventDefault();
 }
