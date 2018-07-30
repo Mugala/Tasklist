@@ -26,6 +26,11 @@ function addTask(e){
     li.className = 'collection-item';
     // create text node and append to li
     li.appendChild(document.createTextNode(taskInput.value));
+    // Create new link element
+
+    const link = document.createElement('a');
+    //Add class
+    link.className = 'delete-item secondary-content';
     
 
     e.preventDefault();
