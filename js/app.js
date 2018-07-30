@@ -6,11 +6,15 @@ const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
-// // Load all event listeners
+// Load all event listeners
 
-// loadEventListeners();
+loadEventListeners();
 
-// // Load all event listeners
-// function loadEventListeners(){
-//     // Add task event
-// }
+// Load all event listeners
+function loadEventListeners(){
+    // Add task event
+    form.addEventListener('submit', addTask);
+}
+// // Add Task
+
+// fun
