@@ -16,7 +16,7 @@ function loadEventListeners(){
 
 // Add Task
 function addTask(e){
-    if(taskInput.Value === ''){
+    if(taskInput.value === ''){
         alert('Add a task');
     }
 
