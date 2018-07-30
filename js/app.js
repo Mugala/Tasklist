@@ -36,7 +36,13 @@ function addTask(e){
     link.innerHTML = '<i class = "fa fa-remove"></i>';
     // Append the link to li
     li.appendChild(link);
-    
+
+    // Append the li to the ul
+
+    taskList.appendChild(li);
+
+    // Clear input
+    taskInput.value = '';
 
     e.preventDefault();
 }
